@@ -99,7 +99,7 @@
 
         <TextView
             android:id="@+id/tvPopular"
-            android:text="Pupular"
+            android:text="Popular"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_width="wrap_content"

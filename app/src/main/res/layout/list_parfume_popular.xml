@@ -51,7 +51,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Parfume"
                                 android:textColor="@color/black"
-                                android:textSize="25sp"
+                                android:textSize="20sp"
                                 android:textStyle="bold"
                                 tools:ignore="HardcodedText" />
 
@@ -63,20 +63,19 @@
                                 android:layout_marginTop="10dp"
                                 android:text="50 ml"
                                 android:textColor="@color/black"
-                                android:textSize="20sp" />
+                                android:textSize="15sp" />
 
                             <LinearLayout
                                 android:id="@+id/llPalace3"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:layout_toEndOf="@+id/tvParfume"
-                                android:layout_marginStart="100dp"
-                                android:layout_marginTop="5dp"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/tvPrice"
-                                    android:text="Popular"
+                                    android:text="Price"
                                     android:textStyle="bold"
                                     android:textSize="20sp"
                                     android:textColor="@color/bgbottom"
@@ -87,7 +86,7 @@
                                     android:id="@+id/tvDolar"
                                     android:text="$50"
                                     android:layout_marginTop="10dp"
-                                    android:textSize="20sp"
+                                    android:textSize="15sp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
 

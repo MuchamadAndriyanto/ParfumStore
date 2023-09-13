@@ -19,6 +19,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
