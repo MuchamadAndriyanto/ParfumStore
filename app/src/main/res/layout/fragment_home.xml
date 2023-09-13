@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    tools:context=".view.HomeFragment">
+    
+    <ImageView
+        android:id="@+id/ivMenu"
+        android:layout_width="39dp"
+        android:layout_marginStart="25dp"
+        android:src="@drawable/menu"
+        android:layout_marginTop="20dp"
+        android:layout_height="38dp"/>
+
+    <TextView
+        android:id="@+id/tvParfum"
+        android:text="Parfume"
+        android:layout_below="@id/ivMenu"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/llPalace"
+        android:layout_below="@id/tvParfum"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvPalace"
+            android:text="Palace"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv2099"
+            android:text="2099"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPalace2"
+        android:layout_below="@id/llPalace"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFeature"
+            android:text="Featured"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvCollection"
+            android:text="Collection"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvParfumeCollection"
+        android:layout_width="match_parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llPalace2"
+        />
+
+    <LinearLayout
+        android:id="@+id/llPalace3"
+        android:layout_below="@id/rvParfumeCollection"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvPopular"
+            android:text="Pupular"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvProduct"
+            android:text="Product"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvParfumePopular"
+        android:layout_width="370dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llPalace3"
+        />
+
+
+
+
+</RelativeLayout>
