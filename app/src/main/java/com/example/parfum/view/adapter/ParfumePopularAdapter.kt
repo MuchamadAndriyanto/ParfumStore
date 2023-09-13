@@ -1,14 +1,19 @@
 package com.example.parfum.view.adapter
 
 import android.content.ReceiverCallNotAllowedException
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parfum.R
 import com.example.parfum.model.ListParfumePopular
+import com.example.parfum.model.ParfumeDetail
+import com.example.parfum.view.DetailFragment
 
 class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>) : RecyclerView.Adapter<ParfumePopularAdapter.ViewHolder>() {
 
@@ -32,6 +37,20 @@ class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>)
         holder.isi.setText(data.isi)
         holder.price.setText(data.price)
         holder.dolar.setText(data.dolar)
+
+        holder.itemView.setOnClickListener {
+            val id = dataList[position].id
+            val image = dataList[position].image
+            val nameParfum = dataList[position].parfume
+            val isiParfum =dataList[position].isi
+            val price = dataList[position].price
+            val harga = dataList[position].dolar
+            val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
+
+            val dataParfumPopular = Bundle()
+            dataParfumPopular.putParcelable("data_parfume",detail)
+            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment,dataParfumPopular)
+        }
     }
 
     override fun getItemCount(): Int {

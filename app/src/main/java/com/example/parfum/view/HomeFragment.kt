@@ -31,18 +31,19 @@ class HomeFragment : Fragment() {
 
         setupParfumeCollection()
         setupParfumePopular()
+
     }
 
     private fun setupParfumeCollection() {
         val listParfumeCollectionData = arrayListOf(
-            ListParfumeCollection(R.drawable.parfume_collection_1),
-            ListParfumeCollection(R.drawable.parfume_collection_2),
-            ListParfumeCollection(R.drawable.parfume_collection_3),
-            ListParfumeCollection(R.drawable.parfume_collection_4),
-            ListParfumeCollection(R.drawable.parfume_collection_5),
-            ListParfumeCollection(R.drawable.parfume_collection_6),
-            ListParfumeCollection(R.drawable.parfume_collection_7),
-            ListParfumeCollection(R.drawable.parfume_collection_8)
+            ListParfumeCollection(1,R.drawable.parfume_collection_1,"parfume Chanel ", "50ml", "Price", "48$"),
+            ListParfumeCollection(2,R.drawable.parfume_collection_2,"parfume A ", "57ml", "Price", "47$"),
+            ListParfumeCollection(3,R.drawable.parfume_collection_3,"parfume B ", "51ml", "Price", "46$"),
+            ListParfumeCollection(4,R.drawable.parfume_collection_4,"parfume C ", "52ml", "Price", "45$"),
+            ListParfumeCollection(5,R.drawable.parfume_collection_5,"parfume D ", "53ml", "Price", "44$"),
+            ListParfumeCollection(6,R.drawable.parfume_collection_6,"parfume E ", "54ml", "Price", "43$"),
+            ListParfumeCollection(7,R.drawable.parfume_collection_7,"parfume F ", "55ml", "Price", "42$"),
+            ListParfumeCollection(8,R.drawable.parfume_collection_8,"parfume G ", "56ml", "Price", "41$")
         )
 
         val parfumeCollectionAdapter = ParfumeCollectionAdapter(listParfumeCollectionData)
@@ -53,15 +54,15 @@ class HomeFragment : Fragment() {
 
     private fun setupParfumePopular() {
         val listParfumePopularData = arrayListOf(
-            ListParfumePopular(R.drawable.parfume, "parfume Chanel ", "50ml", "Price", "48$"),
-            ListParfumePopular(R.drawable.parfume_collection_1, "parfume Dior", "50ml", "Price", "48$"),
-            ListParfumePopular(R.drawable.parfume_collection_2, "parfume Gucci", "50ml", "Price", "47$"),
-            ListParfumePopular(R.drawable.parfume_collection_3, "parfume Yves", "50ml", "Price", "46$"),
-            ListParfumePopular(R.drawable.parfume_collection_4, "parfume Versace", "50ml", "Price", "45$"),
-            ListParfumePopular(R.drawable.parfume_collection_5, "parfume Dolce ", "50ml", "Price", "44$"),
-            ListParfumePopular(R.drawable.parfume_collection_6, "parfume Marc", "50ml", "Price", "43$"),
-            ListParfumePopular(R.drawable.parfume_collection_7, "parfume Calvin", "50ml", "Price", "42$"),
-            ListParfumePopular(R.drawable.parfume_collection_8, "parfume Malone", "50ml", "Price", "41$")
+            ListParfumePopular(1,R.drawable.parfume, "parfume Chanel ", "51ml", "Price", "48$"),
+            ListParfumePopular(2,R.drawable.parfume_collection_1, "parfume Dior", "53ml", "Price", "48$"),
+            ListParfumePopular(3,R.drawable.parfume_collection_2, "parfume Gucci", "54ml", "Price", "47$"),
+            ListParfumePopular(4,R.drawable.parfume_collection_3, "parfume Yves", "57ml", "Price", "46$"),
+            ListParfumePopular(5,R.drawable.parfume_collection_4, "parfume Versace", "53ml", "Price", "45$"),
+            ListParfumePopular(6,R.drawable.parfume_collection_5, "parfume Dolce ", "59ml", "Price", "44$"),
+            ListParfumePopular(7,R.drawable.parfume_collection_6, "parfume Marc", "58ml", "Price", "43$"),
+            ListParfumePopular(8,R.drawable.parfume_collection_7, "parfume Calvin", "51ml", "Price", "42$"),
+            ListParfumePopular(9,R.drawable.parfume_collection_8, "parfume Malone", "50ml", "Price", "41$")
 
         )
 

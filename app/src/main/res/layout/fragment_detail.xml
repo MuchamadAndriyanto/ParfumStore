@@ -1,15 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     tools:context=".view.DetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivBack"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        tools:ignore="ContentDescription" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivFavorite"
+        android:src="@drawable/ic_favorite"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivParfum"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/ivBack"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/parfume"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvSecend"
+        android:text="Secend &amp; Storys"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/ivParfum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvNameParfume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parfume"
+        android:layout_marginStart="30dp"
+        android:layout_below="@id/tvSecend"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/llPalace3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/tvSecend"
+        android:layout_toEndOf="@+id/tvNameParfume"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:text="Price"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/bgbottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDolar"
+            android:text="$50"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llPalace3"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/overview"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:id="@+id/llPalace4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@id/tvOverview"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:text="Detail"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvIsi"
+            android:text="50 ml"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvAlcohol"
+            android:text="100% Alcohol Free"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPalace5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/tvOverview"
+        android:layout_toEndOf="@id/llPalace4"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:text="Quantity"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:src="@drawable/ic_min"
+                android:background="@drawable/bg_stroke_purple"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvAngka"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="0"
+                android:textSize="20sp"
+                android:textColor="#333333"
+                android:gravity="center"
+                android:layout_marginStart="-6dp"
+                android:layout_marginEnd="-6dp" />
+
+            <ImageButton
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:src="@drawable/ic_add_24"
+                android:background="@drawable/bg_stroke_purple"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:padding="15dp"
+        android:layout_below="@id/llPalace5"
+        android:background="@drawable/button_radius"
+        android:layout_marginStart="45dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="45dp"
+        app:backgroundTint="@null"
+        android:text="Add to Cart"
+        tools:ignore="HardcodedText" />
+
+
+
+</RelativeLayout>
