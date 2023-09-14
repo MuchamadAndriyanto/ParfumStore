@@ -77,8 +77,10 @@ class DetailFragment : Fragment() {
             parfumeDetail.isFavorite = !parfumeDetail.isFavorite
             if (parfumeDetail.isFavorite) {
                 viewModel.tambahItemFavorit(parfumeDetail)
+                Toast.makeText(requireContext(), "Add to favorites", Toast.LENGTH_SHORT).show()
             } else {
                 viewModel.deleteFavorite(parfumeDetail)
+                Toast.makeText(requireContext(), "Delete from favorites", Toast.LENGTH_SHORT).show()
             }
             updateFavoriteButton()
         }

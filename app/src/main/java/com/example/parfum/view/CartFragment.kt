@@ -42,15 +42,12 @@ class CartFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.rvParfumeCart.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvParfumeCart.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvParfumeCart.setHasFixedSize(false)
 
         viewModel.getAllCartItems().observe(viewLifecycleOwner) { cartItems ->
             val adapter = ParfumeCartAdapter(cartItems) { item ->
-                // Dialog konfirmasi sebelum menghapus item
                 val alertDialogBuilder = AlertDialog.Builder(requireContext())
-                alertDialogBuilder.setTitle("Konfirmasi Hapus")
                 alertDialogBuilder.setMessage("Apakah Anda ingin menghapus barang ini?")
                 alertDialogBuilder.setPositiveButton("Ya") { _, _ ->
                     // Jika pengguna menekan tombol "Ya", maka hapus item
