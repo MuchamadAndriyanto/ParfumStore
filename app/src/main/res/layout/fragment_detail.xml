@@ -11,7 +11,7 @@
         android:id="@+id/ivBack"
         android:src="@drawable/ic_back"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="30dp"
         android:layout_height="30dp"
         tools:ignore="ContentDescription" />
@@ -20,7 +20,7 @@
         android:id="@+id/ivFavorite"
         android:src="@drawable/ic_favorite"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="11dp"
         android:layout_marginEnd="30dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -206,20 +206,34 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCart"
+    <RelativeLayout
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:padding="15dp"
         android:layout_below="@id/llPalace5"
-        android:background="@drawable/button_radius"
-        android:layout_marginStart="45dp"
-        android:textColor="@color/white"
-        android:layout_marginEnd="45dp"
-        app:backgroundTint="@null"
-        android:text="Add to Cart"
-        tools:ignore="HardcodedText" />
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/btnCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@drawable/button_radius"
+            android:layout_marginStart="75dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="75dp"
+            android:layout_marginBottom="5dp"
+            app:backgroundTint="@null"
+            android:text="Add to Cart"
+            android:layout_alignParentBottom="true"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
 
 
 

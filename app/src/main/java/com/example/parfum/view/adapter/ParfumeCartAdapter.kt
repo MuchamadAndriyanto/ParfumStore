@@ -17,12 +17,12 @@ class ParfumeCartAdapter(private var dataList: List<ItemCart>, private val onDel
 
     inner class ViewHolder(var binding: ListCartParfumeBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-//            binding.btnDelete.setOnClickListener {
-//                val position = adapterPosition
-//                if (position != RecyclerView.NO_POSITION) {
-//                    onDeleteClickListener.invoke(dataList[position])
-//                }
-//            }
+            binding.btnDelete.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onDeleteClickListener.invoke(dataList[position])
+                }
+            }
         }
     }
 
@@ -32,12 +32,27 @@ class ParfumeCartAdapter(private var dataList: List<ItemCart>, private val onDel
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val itemCart = dataList[position]
-        holder.binding.tvParfume.text = itemCart.name
-        holder.binding.tvIsi.text = itemCart.isi
-        holder.binding.tvPrice.text = itemCart.price
-        holder.binding.tvDolar.text = itemCart.harga
-        holder.binding.imgPhoto.setImageResource(itemCart.image)
+        val item = dataList[position]
+        holder.binding.tvParfume.text = item.name
+        holder.binding.tvIsi.text = item.isi
+        holder.binding.tvPrice.text = item.price
+        holder.binding.tvDolar.text = item.harga
+        holder.binding.imgPhoto.setImageResource(item.image)
+
+        holder.binding.parfumeDetail.setOnClickListener {
+            val id = dataList[position].id
+            val image = dataList[position].image
+            val nameParfum = dataList[position].name
+            val isiParfum =dataList[position].isi
+            val price = dataList[position].price
+            val harga = dataList[position].harga
+            val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
+
+            val dataCart = Bundle()
+            dataCart.putParcelable("data_parfume",detail)
+            Navigation.findNavController(it).navigate(R.id.action_cartFragment_to_detailFragment,dataCart)
+
+        }
     }
 
     override fun getItemCount(): Int {

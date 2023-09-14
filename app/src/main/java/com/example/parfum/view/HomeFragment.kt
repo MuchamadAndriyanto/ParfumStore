@@ -38,14 +38,14 @@ class HomeFragment : Fragment() {
 
     private fun setupParfumeCollection() {
         val listParfumeCollectionData = arrayListOf(
-            ListParfumeCollection(1,R.drawable.parfume_collection_1,"parfume Chanel ", "50ml", "Price", "48$"),
-            ListParfumeCollection(2,R.drawable.parfume_collection_2,"parfume A ", "57ml", "Price", "47$"),
-            ListParfumeCollection(3,R.drawable.parfume_collection_3,"parfume B ", "51ml", "Price", "46$"),
-            ListParfumeCollection(4,R.drawable.parfume_collection_4,"parfume C ", "52ml", "Price", "45$"),
-            ListParfumeCollection(5,R.drawable.parfume_collection_5,"parfume D ", "53ml", "Price", "44$"),
-            ListParfumeCollection(6,R.drawable.parfume_collection_6,"parfume E ", "54ml", "Price", "43$"),
-            ListParfumeCollection(7,R.drawable.parfume_collection_7,"parfume F ", "55ml", "Price", "42$"),
-            ListParfumeCollection(8,R.drawable.parfume_collection_8,"parfume G ", "56ml", "Price", "41$")
+            ListParfumeCollection(1,R.drawable.parfume_collection_1,"parfume A ", "50ml", "Price", "48$"),
+            ListParfumeCollection(2,R.drawable.parfume_collection_2,"parfume B ", "57ml", "Price", "47$"),
+            ListParfumeCollection(3,R.drawable.parfume_collection_3,"parfume C ", "51ml", "Price", "46$"),
+            ListParfumeCollection(4,R.drawable.parfume_collection_4,"parfume D ", "52ml", "Price", "45$"),
+            ListParfumeCollection(5,R.drawable.parfume_collection_5,"parfume E ", "53ml", "Price", "44$"),
+            ListParfumeCollection(6,R.drawable.parfume_collection_6,"parfume F ", "54ml", "Price", "43$"),
+            ListParfumeCollection(7,R.drawable.parfume_collection_7,"parfume G ", "55ml", "Price", "42$"),
+            ListParfumeCollection(8,R.drawable.parfume_collection_8,"parfume H ", "56ml", "Price", "41$")
         )
 
         val parfumeCollectionAdapter = ParfumeCollectionAdapter(listParfumeCollectionData)
@@ -56,15 +56,15 @@ class HomeFragment : Fragment() {
 
     private fun setupParfumePopular() {
         val listParfumePopularData = arrayListOf(
-            ListParfumePopular(1,R.drawable.parfume, "parfume Chanel ", "51ml", "Price", "48$"),
-            ListParfumePopular(2,R.drawable.parfume_collection_1, "parfume Dior", "53ml", "Price", "48$"),
-            ListParfumePopular(3,R.drawable.parfume_collection_2, "parfume Gucci", "54ml", "Price", "47$"),
-            ListParfumePopular(4,R.drawable.parfume_collection_3, "parfume Yves", "57ml", "Price", "46$"),
-            ListParfumePopular(5,R.drawable.parfume_collection_4, "parfume Versace", "53ml", "Price", "45$"),
-            ListParfumePopular(6,R.drawable.parfume_collection_5, "parfume Dolce ", "59ml", "Price", "44$"),
-            ListParfumePopular(7,R.drawable.parfume_collection_6, "parfume Marc", "58ml", "Price", "43$"),
-            ListParfumePopular(8,R.drawable.parfume_collection_7, "parfume Calvin", "51ml", "Price", "42$"),
-            ListParfumePopular(9,R.drawable.parfume_collection_8, "parfume Malone", "50ml", "Price", "41$")
+            ListParfumePopular(1,R.drawable.parfume, "parfume I ", "51ml", "Price", "48$"),
+            ListParfumePopular(2,R.drawable.parfume_collection_1, "parfume J", "53ml", "Price", "48$"),
+            ListParfumePopular(3,R.drawable.parfume_collection_2, "parfume K", "54ml", "Price", "47$"),
+            ListParfumePopular(4,R.drawable.parfume_collection_3, "parfume L", "57ml", "Price", "46$"),
+            ListParfumePopular(5,R.drawable.parfume_collection_4, "parfume M", "53ml", "Price", "45$"),
+            ListParfumePopular(6,R.drawable.parfume_collection_5, "parfume N", "59ml", "Price", "44$"),
+            ListParfumePopular(7,R.drawable.parfume_collection_6, "parfume O", "58ml", "Price", "43$"),
+            ListParfumePopular(8,R.drawable.parfume_collection_7, "parfume P", "51ml", "Price", "42$"),
+            ListParfumePopular(9,R.drawable.parfume_collection_8, "parfume Q", "50ml", "Price", "41$")
         )
 
         val parfumePopularAdapter = ParfumePopularAdapter(listParfumePopularData)

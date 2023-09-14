@@ -11,45 +11,42 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parfum.R
+import com.example.parfum.databinding.ListParfumeCollectionBinding
+import com.example.parfum.databinding.ListParfumePopularBinding
 import com.example.parfum.model.ListParfumePopular
 import com.example.parfum.model.ParfumeDetail
 import com.example.parfum.view.DetailFragment
 
 class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>) : RecyclerView.Adapter<ParfumePopularAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var image = view.findViewById<ImageView>(R.id.imgPhoto)
-        var parfume = view.findViewById<TextView>(R.id.tvParfume)
-        var isi = view.findViewById<TextView>(R.id.tvIsi)
-        var price = view.findViewById<TextView>(R.id.tvPrice)
-        var dolar = view.findViewById<TextView>(R.id.tvDolar)
-    }
+    class ViewHolder(val binding: ListParfumePopularBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_parfume_popular, parent, false)
+        val view = ListParfumePopularBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = dataList[position]
-        holder.image.setImageResource(data.image)
-        holder.parfume.setText(data.parfume)
-        holder.isi.setText(data.isi)
-        holder.price.setText(data.price)
-        holder.dolar.setText(data.dolar)
+        val item = dataList[position]
+
+        holder.binding.imgPhoto.setImageResource(item.image)
+        holder.binding.tvParfume.text = item.parfume
+        holder.binding.tvIsi.text = item.isi
+        holder.binding.tvPrice.text = item.price
+        holder.binding.tvDolar.text = item.dolar
 
         holder.itemView.setOnClickListener {
-            val id = dataList[position].id
-            val image = dataList[position].image
-            val nameParfum = dataList[position].parfume
-            val isiParfum =dataList[position].isi
-            val price = dataList[position].price
-            val harga = dataList[position].dolar
-            val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
+            val id = item.id
+            val image = item.image
+            val nameParfum = item.parfume
+            val isiParfum = item.isi
+            val price = item.price
+            val harga = item.dolar
+            val detail = ParfumeDetail(id, image, nameParfum, isiParfum, price, harga)
 
-            val dataParfumPopular = Bundle()
-            dataParfumPopular.putParcelable("data_parfume",detail)
-            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment,dataParfumPopular)
+            val dataParfumCollection = Bundle()
+            dataParfumCollection.putParcelable("data_parfume", detail)
+            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, dataParfumCollection)
         }
     }
 

@@ -17,14 +17,15 @@ class FavoriteParfumAdapter (private var dataList: List<ItemParfumeFavorite>) : 
         val view = ListFavParfumeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
-    override fun onBindViewHolder(holder: FavoriteParfumAdapter.ViewHolder, position: Int) {
-        val movie = dataList[position]
 
-        holder.binding.imgPhoto.setImageResource(movie.image)
-        holder.binding.tvParfume.text = movie.name
-        holder.binding.tvIsi.text = movie.isi
-        holder.binding.tvPrice.text = movie.price
-        holder.binding.tvDolar.text = movie.harga
+    override fun onBindViewHolder(holder: FavoriteParfumAdapter.ViewHolder, position: Int) {
+        val item = dataList[position]
+
+        holder.binding.imgPhoto.setImageResource(item.image)
+        holder.binding.tvParfume.text = item.name
+        holder.binding.tvIsi.text =item.isi
+        holder.binding.tvPrice.text = item.price
+        holder.binding.tvDolar.text = item.harga
 
         holder.binding.parfumeDetail.setOnClickListener {
             val id = dataList[position].id
@@ -35,12 +36,13 @@ class FavoriteParfumAdapter (private var dataList: List<ItemParfumeFavorite>) : 
             val harga = dataList[position].harga
             val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
 
-            val data = Bundle()
-            data.putParcelable("data_parfume",detail)
-            Navigation.findNavController(it).navigate(R.id.action_favoriteFragment_to_detailFragment,data)
+            val dataFav = Bundle()
+            dataFav.putParcelable("data_parfume",detail)
+            Navigation.findNavController(it).navigate(R.id.action_favoriteFragment_to_detailFragment,dataFav)
 
         }
     }
+
     override fun getItemCount(): Int {
         return dataList.size
     }

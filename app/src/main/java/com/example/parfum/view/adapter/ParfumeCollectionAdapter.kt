@@ -8,40 +8,40 @@ import android.widget.ImageView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parfum.R
+import com.example.parfum.databinding.ListFavParfumeBinding
+import com.example.parfum.databinding.ListParfumeCollectionBinding
 import com.example.parfum.model.ListParfumeCollection
 import com.example.parfum.model.ParfumeDetail
 
 class ParfumeCollectionAdapter(private val dataList: ArrayList<ListParfumeCollection>) : RecyclerView.Adapter<ParfumeCollectionAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(val binding: ListParfumeCollectionBinding) : RecyclerView.ViewHolder(binding.root)
 
-        var img = view.findViewById<ImageView>(R.id.ivBackground)
-
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParfumeCollectionAdapter.ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.list_parfume_collection, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = ListParfumeCollectionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder:ParfumeCollectionAdapter.ViewHolder, position: Int) {
-        holder.img.setImageResource(dataList[position].image)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = dataList[position]
+
+        holder.binding.ivBackground.setImageResource(item.image)
 
         holder.itemView.setOnClickListener {
-            val id = dataList[position].id
-            val image = dataList[position].image
-            val nameParfum = dataList[position].parfume
-            val isiParfum =dataList[position].isi
-            val price = dataList[position].price
-            val harga = dataList[position].dolar
-            val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
+            val id = item.id
+            val image = item.image
+            val nameParfum = item.parfume
+            val isiParfum = item.isi
+            val price = item.price
+            val harga = item.dolar
+            val detail = ParfumeDetail(id, image, nameParfum, isiParfum, price, harga)
 
-            val dataParfumPopular = Bundle()
-            dataParfumPopular.putParcelable("data_parfume",detail)
-            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment,dataParfumPopular)
+            val dataParfumCollection = Bundle()
+            dataParfumCollection.putParcelable("data_parfume", detail)
+            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, dataParfumCollection)
         }
-
     }
+
     override fun getItemCount(): Int {
         return dataList.size
     }
