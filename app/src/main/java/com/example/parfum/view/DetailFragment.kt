@@ -6,16 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.parfum.R
 import com.example.parfum.databinding.FragmentDetailBinding
 import com.example.parfum.databinding.FragmentHomeBinding
+import com.example.parfum.dbroom.cart.ItemCart
 import com.example.parfum.model.ListParfumePopular
 import com.example.parfum.model.ParfumeDetail
+import com.example.parfum.viewmodel.CartViewModel
 import com.example.parfum.viewmodel.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -23,7 +28,9 @@ class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
     private lateinit var parfumeDetail: ParfumeDetail
     private lateinit var viewModel: FavoriteViewModel
+    private lateinit var viewModelCart: CartViewModel
     private var value = 0
+    private lateinit var cartItem: ItemCart
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +44,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
+        viewModelCart = ViewModelProvider(this).get(CartViewModel::class.java)
 
         binding.btnMin.setOnClickListener {
             if (value > 0) {
@@ -74,8 +82,21 @@ class DetailFragment : Fragment() {
             }
             updateFavoriteButton()
         }
-
         updateFavoriteButton()
+
+        binding.btnCart.setOnClickListener {
+            cartItem = ItemCart(
+                name = parfumeDetail.parfume,
+                isi = parfumeDetail.isi,
+                image = parfumeDetail.image,
+                price = parfumeDetail.price,
+                harga = parfumeDetail.dolar
+            )
+            lifecycleScope.launch {
+                viewModelCart.insertCartItem(cartItem)
+                Toast.makeText(requireContext(), "Item added to cart", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
 
