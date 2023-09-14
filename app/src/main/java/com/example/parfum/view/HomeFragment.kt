@@ -12,7 +12,9 @@ import com.example.parfum.model.ListParfumeCollection
 import com.example.parfum.model.ListParfumePopular
 import com.example.parfum.view.adapter.ParfumeCollectionAdapter
 import com.example.parfum.view.adapter.ParfumePopularAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -63,7 +65,6 @@ class HomeFragment : Fragment() {
             ListParfumePopular(7,R.drawable.parfume_collection_6, "parfume Marc", "58ml", "Price", "43$"),
             ListParfumePopular(8,R.drawable.parfume_collection_7, "parfume Calvin", "51ml", "Price", "42$"),
             ListParfumePopular(9,R.drawable.parfume_collection_8, "parfume Malone", "50ml", "Price", "41$")
-
         )
 
         val parfumePopularAdapter = ParfumePopularAdapter(listParfumePopularData)

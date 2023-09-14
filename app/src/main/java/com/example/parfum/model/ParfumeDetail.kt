@@ -10,5 +10,6 @@ data class ParfumeDetail(
     var parfume : String,
     var isi : String,
     var price : String,
-    var dolar : String
+    var dolar : String,
+    var isFavorite: Boolean = false
 ) : Parcelable
