@@ -35,11 +35,11 @@ class FavoriteFragment : Fragment() {
         }
 
         viewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
-        movieFavorit()
+        itemFavorit()
 
     }
 
-    private fun movieFavorit() {
+    private fun itemFavorit() {
         binding.rvParfumeFavorite.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvParfumeFavorite.setHasFixedSize(false)
         viewModel.getAllFavorite()
