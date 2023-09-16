@@ -12,9 +12,4 @@
         android:icon="@drawable/ic_fav"
         tools:ignore="MenuTitle"
         />
-    <item
-        android:id="@+id/cartFragment"
-        android:icon="@drawable/ic_cart"
-        tools:ignore="MenuTitle"
-        />
 </menu>

@@ -31,10 +31,10 @@ class MainActivity : AppCompatActivity() {
         // Listener untuk mengatur tampilan bottom navigation saat perubahan fragment
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment, R.id.favoriteFragment, R.id.cartFragment -> {
+                R.id.homeFragment, R.id.favoriteFragment -> {
                     bottomNavigation.visibility = View.VISIBLE
                 }
-                R.id.detailFragment -> {
+                R.id.detailFragment, R.id.cartFragment -> {
                     bottomNavigation.visibility = View.GONE
                 }
                 else -> {

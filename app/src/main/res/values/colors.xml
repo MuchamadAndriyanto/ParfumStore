@@ -5,4 +5,5 @@
     <color name="bottom">#292A2F</color>
     <color name="bg">#DCDCDC</color>
     <color name="bgbottom">#BC5B27</color>
+    <color name="transparant">#00FFFFFF</color>
 </resources>

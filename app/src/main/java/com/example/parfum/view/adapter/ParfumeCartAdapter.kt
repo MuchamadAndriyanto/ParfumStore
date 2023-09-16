@@ -39,20 +39,6 @@ class ParfumeCartAdapter(private var dataList: List<ItemCart>, private val onDel
         holder.binding.tvDolar.text = item.harga
         holder.binding.imgPhoto.setImageResource(item.image)
 
-//        holder.binding.parfumeDetail.setOnClickListener {
-//            val id = dataList[position].id
-//            val image = dataList[position].image
-//            val nameParfum = dataList[position].name
-//            val isiParfum =dataList[position].isi
-//            val price = dataList[position].price
-//            val harga = dataList[position].harga
-//            val detail = ParfumeDetail(id,image,nameParfum,isiParfum,price,harga)
-//
-//            val dataCart = Bundle()
-//            dataCart.putParcelable("data_parfume",detail)
-//            Navigation.findNavController(it).navigate(R.id.action_cartFragment_to_detailFragment,dataCart)
-//
-//        }
     }
 
     override fun getItemCount(): Int {

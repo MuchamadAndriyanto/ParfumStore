@@ -1,10 +1,13 @@
 package com.example.parfum.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.parfum.R
 import com.example.parfum.databinding.FragmentHomeBinding
@@ -12,6 +15,7 @@ import com.example.parfum.model.ListParfumeCollection
 import com.example.parfum.model.ListParfumePopular
 import com.example.parfum.view.adapter.ParfumeCollectionAdapter
 import com.example.parfum.view.adapter.ParfumePopularAdapter
+import com.example.parfum.viewmodel.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,11 +32,25 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupParfumeCollection()
         setupParfumePopular()
+
+        binding.btnCart.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
+        }
+
+        val viewModelCart: CartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+
+        //mengambil data barang yang ada di cart
+        viewModelCart.getAllCartItems().observe(this, { cartItems ->
+            val numItems = cartItems?.size ?: 0
+            binding.btnAngka.text = numItems.toString()
+        })
+
 
     }
 

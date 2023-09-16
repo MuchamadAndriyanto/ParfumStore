@@ -87,16 +87,21 @@ class DetailFragment : Fragment() {
         updateFavoriteButton()
 
         binding.btnCart.setOnClickListener {
-            cartItem = ItemCart(
+            val newItem = ItemCart(
                 name = parfumeDetail.parfume,
                 isi = parfumeDetail.isi,
                 image = parfumeDetail.image,
                 price = parfumeDetail.price,
                 harga = parfumeDetail.dolar
             )
-            lifecycleScope.launch {
-                viewModelCart.insertCartItem(cartItem)
-                Toast.makeText(requireContext(), "Item added to cart", Toast.LENGTH_SHORT).show()
+
+            val isItemInCart = viewModelCart.isItemInCart(newItem)
+
+            if (!isItemInCart) {
+                lifecycleScope.launch {
+                    viewModelCart.insertCartItem(newItem)
+                    Toast.makeText(requireContext(), "Item added to cart", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
