@@ -5,17 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.parfum.R
 import com.example.parfum.databinding.ListParfumeCollectionBinding
 import com.example.parfum.databinding.ListParfumePopularBinding
 import com.example.parfum.model.ListParfumePopular
 import com.example.parfum.model.ParfumeDetail
-import com.example.parfum.view.DetailFragment
 
 class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>) : RecyclerView.Adapter<ParfumePopularAdapter.ViewHolder>() {
 
@@ -29,7 +26,8 @@ class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
 
-        holder.binding.imgPhoto.setImageResource(item.image)
+        Glide.with(holder.itemView.context).load(item.image).into(holder.binding.imgPhoto)
+
         holder.binding.tvParfume.text = item.parfume
         holder.binding.tvIsi.text = item.isi
         holder.binding.tvPrice.text = item.price
@@ -44,9 +42,9 @@ class ParfumePopularAdapter(private val dataList: ArrayList<ListParfumePopular>)
             val harga = item.dolar
             val detail = ParfumeDetail(id, image, nameParfum, isiParfum, price, harga)
 
-            val dataParfumCollection = Bundle()
-            dataParfumCollection.putParcelable("data_parfume", detail)
-            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, dataParfumCollection)
+            val dataParfumPopular = Bundle()
+            dataParfumPopular.putParcelable("data_parfume", detail)
+            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, dataParfumPopular)
         }
     }
 

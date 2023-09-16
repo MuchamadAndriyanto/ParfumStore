@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.parfum.R
 import com.example.parfum.databinding.ListFavParfumeBinding
 import com.example.parfum.databinding.ListParfumeCollectionBinding
@@ -25,7 +26,7 @@ class ParfumeCollectionAdapter(private val dataList: ArrayList<ListParfumeCollec
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
 
-        holder.binding.ivBackground.setImageResource(item.image)
+        Glide.with(holder.itemView.context).load(item.image).into(holder.binding.ivBackground)
 
         holder.itemView.setOnClickListener {
             val id = item.id
