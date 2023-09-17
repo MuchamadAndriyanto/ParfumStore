@@ -1,9 +1,11 @@
 package com.example.parfum.view.adapter
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -23,10 +25,13 @@ class ParfumeCollectionAdapter(private val dataList: ArrayList<ListParfumeCollec
         return ViewHolder(view)
     }
 
+    @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
 
         Glide.with(holder.itemView.context).load(item.image).into(holder.binding.ivBackground)
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.drawable.slide_show)
+        holder.itemView.startAnimation(animation)
 
         holder.itemView.setOnClickListener {
             val id = item.id

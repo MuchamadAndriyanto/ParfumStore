@@ -57,39 +57,39 @@ class HomeFragment : Fragment() {
 
     private fun setupParfumeCollection() {
         val listParfumeCollectionData = arrayListOf(
-            ListParfumeCollection(1,R.drawable.parfume_collection_1,"parfume A ", "50ml", "Price", "48$"),
+            ListParfumeCollection(1,R.drawable.parfume_collection_4,"parfume A ", "50ml", "Price", "48$"),
             ListParfumeCollection(2,R.drawable.parfume_collection_2,"parfume B ", "57ml", "Price", "47$"),
-            ListParfumeCollection(3,R.drawable.popular_4,"parfume C ", "51ml", "Price", "46$"),
-            ListParfumeCollection(4,R.drawable.parfume_collection_4,"parfume D ", "52ml", "Price", "45$"),
-            ListParfumeCollection(5,R.drawable.parfume_collection_5,"parfume E ", "53ml", "Price", "44$"),
-            ListParfumeCollection(6,R.drawable.parfume_collection_6,"parfume F ", "54ml", "Price", "43$"),
-            ListParfumeCollection(7,R.drawable.parfume_collection_7,"parfume G ", "55ml", "Price", "42$"),
-            ListParfumeCollection(8,R.drawable.parfume_collection_8,"parfume H ", "56ml", "Price", "41$")
+            ListParfumeCollection(3,R.drawable.parfume_collection_4,"parfume C ", "51ml", "Price", "46$"),
+            ListParfumeCollection(4,R.drawable.parfume_collection_2,"parfume D ", "52ml", "Price", "45$"),
+            ListParfumeCollection(5,R.drawable.parfume_collection_4,"parfume E ", "53ml", "Price", "44$"),
+            ListParfumeCollection(6,R.drawable.parfume_collection_2,"parfume F ", "54ml", "Price", "43$"),
+            ListParfumeCollection(7,R.drawable.parfume_collection_4,"parfume G ", "55ml", "Price", "42$"),
+            ListParfumeCollection(8,R.drawable.parfume_collection_2,"parfume H ", "56ml", "Price", "41$")
         )
 
         val parfumeCollectionAdapter = ParfumeCollectionAdapter(listParfumeCollectionData)
-        val lm = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvParfumeCollection.layoutManager = lm
+        val lmCollection = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvParfumeCollection.layoutManager = lmCollection
         binding.rvParfumeCollection.adapter = parfumeCollectionAdapter
     }
 
     private fun setupParfumePopular() {
         val listParfumePopularData = arrayListOf(
-            ListParfumePopular(1,R.drawable.popular_1, "parfume I ", "51ml", "Price", "48$"),
-            ListParfumePopular(2,R.drawable.parfume_collection_8, "parfume J", "53ml", "Price", "48$"),
-            ListParfumePopular(3,R.drawable.popular_3, "parfume K", "54ml", "Price", "47$"),
-            ListParfumePopular(4,R.drawable.popular_4, "parfume L", "57ml", "Price", "46$"),
-            ListParfumePopular(5,R.drawable.popular_5, "parfume M", "53ml", "Price", "45$"),
-            ListParfumePopular(6,R.drawable.popular_6, "parfume N", "59ml", "Price", "44$"),
-            ListParfumePopular(7,R.drawable.popular_7, "parfume O", "58ml", "Price", "43$"),
-            ListParfumePopular(8,R.drawable.popular_8, "parfume P", "51ml", "Price", "42$"),
+            ListParfumePopular(1,R.drawable.parfume_collection_2, "parfume I ", "51ml", "Price", "48$"),
+            ListParfumePopular(2,R.drawable.parfume_collection_4, "parfume J", "53ml", "Price", "48$"),
+            ListParfumePopular(3,R.drawable.parfume_collection_2, "parfume K", "54ml", "Price", "47$"),
+            ListParfumePopular(4,R.drawable.parfume_collection_4, "parfume L", "57ml", "Price", "46$"),
+            ListParfumePopular(5,R.drawable.parfume_collection_2, "parfume M", "53ml", "Price", "45$"),
+            ListParfumePopular(6,R.drawable.parfume_collection_4, "parfume N", "59ml", "Price", "44$"),
+            ListParfumePopular(7,R.drawable.parfume_collection_2, "parfume O", "58ml", "Price", "43$"),
+            ListParfumePopular(8,R.drawable.parfume_collection_4, "parfume P", "51ml", "Price", "42$"),
             ListParfumePopular(9,R.drawable.parfume_collection_2, "parfume Q", "50ml", "Price", "41$"),
-            ListParfumePopular(10,R.drawable.parfume_collection_5,"parfume Y","49ml","Price","40$")
+            ListParfumePopular(10,R.drawable.parfume_collection_4,"parfume Y","49ml","Price","40$")
         )
 
         val parfumePopularAdapter = ParfumePopularAdapter(listParfumePopularData)
-        val lm2 = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvParfumePopular.layoutManager = lm2
+        val lmPopular = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvParfumePopular.layoutManager = lmPopular
         binding.rvParfumePopular.adapter = parfumePopularAdapter
     }
 }
