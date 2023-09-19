@@ -44,4 +44,9 @@ class ParfumeCartAdapter(private var dataList: List<ItemCart>, private val onDel
     override fun getItemCount(): Int {
         return dataList.size
     }
+
+    fun getCartPosition(position: Int): ItemCart {
+        return dataList[position]
+    }
+
 }

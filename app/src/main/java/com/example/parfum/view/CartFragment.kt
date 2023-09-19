@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parfum.databinding.FragmentCartBinding
 import com.example.parfum.view.adapter.ParfumeCartAdapter
 import com.example.parfum.viewmodel.CartViewModel
@@ -42,7 +44,8 @@ class CartFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.rvParfumeCart.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvParfumeCart.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvParfumeCart.setHasFixedSize(false)
 
         viewModel.getAllCartItems().observe(viewLifecycleOwner) { cartItems ->
@@ -65,6 +68,43 @@ class CartFragment : Fragment() {
             }
 
             binding.rvParfumeCart.adapter = adapter
+
+            val itemTouchHelperCallback = object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    // Implementasi ini tidak diperlukan jika Anda tidak ingin mendukung drag-and-drop
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val position = viewHolder.adapterPosition
+                    val item = adapter.getCartPosition(position)
+
+                    val alertDialogBuilder = AlertDialog.Builder(requireContext())
+                    alertDialogBuilder.setMessage("Apakah Anda ingin menghapus barang ini?")
+                    alertDialogBuilder.setPositiveButton("Ya") { _, _ ->
+                        // Jika pengguna menekan tombol "Ya", maka hapus item
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            viewModel.deleteCartItem(item.id)
+                        }
+                    }
+                    alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
+                        // Jika pengguna menekan tombol "Tidak", tutup dialog tanpa menghapus item
+                        dialog.dismiss()
+                        adapter.notifyItemChanged(position)
+                    }
+
+                    val alertDialog = alertDialogBuilder.create()
+                    alertDialog.show()
+                }
+            }
+
+            val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+            itemTouchHelper.attachToRecyclerView(binding.rvParfumeCart)
         }
     }
 }
