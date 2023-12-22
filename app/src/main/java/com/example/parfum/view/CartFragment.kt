@@ -69,42 +69,42 @@ class CartFragment : Fragment() {
 
             binding.rvParfumeCart.adapter = adapter
 
-            val itemTouchHelperCallback = object :
-                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-                override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean {
-                    // Implementasi ini tidak diperlukan jika Anda tidak ingin mendukung drag-and-drop
-                    return false
-                }
-
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    val position = viewHolder.adapterPosition
-                    val item = adapter.getCartPosition(position)
-
-                    val alertDialogBuilder = AlertDialog.Builder(requireContext())
-                    alertDialogBuilder.setMessage("Apakah Anda ingin menghapus barang ini?")
-                    alertDialogBuilder.setPositiveButton("Ya") { _, _ ->
-                        // Jika pengguna menekan tombol "Ya", maka hapus item
-                        viewLifecycleOwner.lifecycleScope.launch {
-                            viewModel.deleteCartItem(item.id)
-                        }
-                    }
-                    alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
-                        // Jika pengguna menekan tombol "Tidak", tutup dialog tanpa menghapus item
-                        dialog.dismiss()
-                        adapter.notifyItemChanged(position)
-                    }
-
-                    val alertDialog = alertDialogBuilder.create()
-                    alertDialog.show()
-                }
-            }
-
-            val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
-            itemTouchHelper.attachToRecyclerView(binding.rvParfumeCart)
+//            val itemTouchHelperCallback = object :
+//                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+//                override fun onMove(
+//                    recyclerView: RecyclerView,
+//                    viewHolder: RecyclerView.ViewHolder,
+//                    target: RecyclerView.ViewHolder
+//                ): Boolean {
+//                    // Implementasi ini tidak diperlukan jika Anda tidak ingin mendukung drag-and-drop
+//                    return false
+//                }
+//
+//                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                    val position = viewHolder.adapterPosition
+//                    val item = adapter.getCartPosition(position)
+//
+//                    val alertDialogBuilder = AlertDialog.Builder(requireContext())
+//                    alertDialogBuilder.setMessage("Apakah Anda ingin menghapus barang ini?")
+//                    alertDialogBuilder.setPositiveButton("Ya") { _, _ ->
+//                        // Jika pengguna menekan tombol "Ya", maka hapus item
+//                        viewLifecycleOwner.lifecycleScope.launch {
+//                            viewModel.deleteCartItem(item.id)
+//                        }
+//                    }
+//                    alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
+//                        // Jika pengguna menekan tombol "Tidak", tutup dialog tanpa menghapus item
+//                        dialog.dismiss()
+//                        adapter.notifyItemChanged(position)
+//                    }
+//
+//                    val alertDialog = alertDialogBuilder.create()
+//                    alertDialog.show()
+//                }
+//            }
+//
+//            val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+//            itemTouchHelper.attachToRecyclerView(binding.rvParfumeCart)
         }
     }
 }
